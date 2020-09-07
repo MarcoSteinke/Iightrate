@@ -1,7 +1,5 @@
 package net.bestofcode.lightrate.domain;
 
-import lombok.AllArgsConstructor;
-
 import java.util.UUID;
 
 public class Rating {
