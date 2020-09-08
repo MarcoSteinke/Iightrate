@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <title>lightrate | Welcome to lightrate</title>
 </head>
-<body style="text-align: center">
+<style>
+    input {
+        margin: 8px;
+        padding: 6px;
+    }
+
+    input:focus {
+        filter: drop-shadow(2px 2px 2px rgb(60,60,60));
+        transition-duration: 0.3s;
+    }
+</style>
+<body style="text-align: center; margin: 0px; padding: 0px;">
     <div style="filter: drop-shadow(1px 1px 1px rgb(60,60,60));">
         <h2><span style="color: lightgreen;">lightrate</span> : the next level rating tool</h2>
         <hr>
     </div>
+    <form method="post" action="/" style="margin: 60px 0px 0px 0px">
+        <h4>Create a new rating with lightrate</h4>
+        <input name="title" minlength="5" maxlength="60" type="text" placeholder="Title"><br>
+        <input name="description" minlength="5" maxlength="200" type="text" placeholder="Description"><br>
+        <input name="submit" type="submit" value="create">
+    </form>
 </body>
 </html>
