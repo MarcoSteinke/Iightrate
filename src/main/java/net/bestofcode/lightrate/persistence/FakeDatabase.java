@@ -23,4 +23,10 @@ public class FakeDatabase {
         this.database.put(ratingDTO.getRatingID(), ratingDTO);
 
     }
+
+    public RatingDTO load(RatingID ratingID) {
+
+        return this.database.get(ratingID);
+
+    }
 }
