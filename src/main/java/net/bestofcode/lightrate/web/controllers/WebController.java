@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 @Controller
@@ -51,6 +52,37 @@ public class WebController {
 
     @GetMapping("/{id}")
     public String returnRating(Model model, @PathVariable String id) {
+
+        RatingID ratingID;
+
+        try {
+
+            ratingID = new RatingID(UUID.fromString(id));
+
+        } catch (IllegalArgumentException illegalArgumentException) {
+
+            model.addAttribute("error", "The link you requested does not exist!");
+            return "index";
+
+        }
+
+        Rating rating = this.databaseService.load(ratingID);
+
+        if (rating != null) {
+
+            model.addAttribute("rating", rating);
+            return "rating";
+
+        } else {
+
+            model.addAttribute("error", "The link you requested does not exist!");
+            return "index";
+
+        }
+    }
+
+    @PostMapping("/{id}")
+    public String returnRating(Model model, @PathVariable String id, HttpServletRequest request) {
 
         RatingID ratingID;
 
