@@ -82,7 +82,7 @@ public class WebController {
     }
 
     @PostMapping("/{id}")
-    public String returnRating(Model model, @PathVariable String id, HttpServletRequest request) {
+    public String returnRating(Model model, @PathVariable String id, @RequestParam int star, HttpServletRequest request) {
 
         RatingID ratingID;
 
