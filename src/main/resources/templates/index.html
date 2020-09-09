@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>lightrate | Welcome to lightrate</title>
@@ -21,6 +21,7 @@
         <hr>
     </div>
     <form method="post" action="/" style="margin: 60px 0px 0px 0px">
+        <h4 style="color: coral" th:if="${error}">You have to fill all inputs!</h4>
         <h4>Create a new rating with lightrate</h4>
         <input name="title" minlength="5" maxlength="60" type="text" placeholder="Title"><br>
         <input name="description" minlength="5" maxlength="200" type="text" placeholder="Description"><br>

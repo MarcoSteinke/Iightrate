@@ -30,6 +30,11 @@ public class LandingPageController {
     @PostMapping("/")
     public String createNewRating(Model model, @RequestParam String title, @RequestParam String description) {
 
+        if (title.equals("") || description.equals("")) {
+            model.addAttribute("error", "1");
+            return "index";
+        }
+
         // validate and persist the information
         Rating rating = this.ratingService.createRating(
                 new Title(title),
