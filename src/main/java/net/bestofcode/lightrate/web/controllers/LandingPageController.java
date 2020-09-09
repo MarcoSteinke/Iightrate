@@ -16,6 +16,6 @@ public class LandingPageController {
 
     @PostMapping("/")
     public String createNewRating(Model model, @RequestParam String title, @RequestParam String description) {
-
+        return "rating";
     }
 }
