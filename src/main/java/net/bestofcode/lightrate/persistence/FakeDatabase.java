@@ -36,10 +36,6 @@ public class FakeDatabase {
 
         RatingDTO ratingDTO = this.database.get(ratingID);
 
-        System.out.println(
-                ratingDTO.getRatingID().getId().toString()
-        );
-
         return this.ratingMapper.mapToRating(ratingDTO);
 
     }

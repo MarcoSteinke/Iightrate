@@ -14,6 +14,13 @@ import org.springframework.stereotype.Component;
 public class RatingMapper {
 
     public Rating mapToRating(RatingDTO ratingDTO) {
+
+        if (ratingDTO == null) {
+
+            return null;
+
+        }
+
         Rating rating = new Rating(
                 new Title(ratingDTO.getTitle().getTitleContent()),
                 new Description(ratingDTO.getDescription().getDescriptionContent()),

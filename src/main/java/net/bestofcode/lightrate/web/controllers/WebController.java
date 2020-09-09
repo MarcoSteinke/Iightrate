@@ -52,7 +52,18 @@ public class WebController {
     @GetMapping("/{id}")
     public String returnRating(Model model, @PathVariable String id) {
 
-        RatingID ratingID = new RatingID(UUID.fromString(id));
+        RatingID ratingID;
+
+        try {
+
+            ratingID = new RatingID(UUID.fromString(id));
+
+        } catch (IllegalArgumentException illegalArgumentException) {
+
+            model.addAttribute("error2", "1");
+            return "redirect:/";
+
+        }
 
         Rating rating = this.databaseService.load(ratingID);
 
