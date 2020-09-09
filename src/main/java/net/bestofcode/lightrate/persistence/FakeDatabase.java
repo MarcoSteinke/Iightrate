@@ -12,6 +12,14 @@ public class FakeDatabase {
     private final HashMap<RatingID, RatingDTO> database;
 
     public FakeDatabase() {
+
         this.database = new HashMap<RatingID, RatingDTO>();
+
+    }
+
+    public void insert(RatingDTO ratingDTO) {
+
+        this.database.put(ratingDTO.getRatingID(), ratingDTO);
+
     }
 }
