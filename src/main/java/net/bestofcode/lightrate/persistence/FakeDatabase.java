@@ -2,6 +2,7 @@ package net.bestofcode.lightrate.persistence;
 
 import net.bestofcode.lightrate.domain.model.RatingID;
 import net.bestofcode.lightrate.persistence.DTO.RatingDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
