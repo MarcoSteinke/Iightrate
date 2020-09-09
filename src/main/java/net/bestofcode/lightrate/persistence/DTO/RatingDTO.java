@@ -7,6 +7,7 @@ import net.bestofcode.lightrate.domain.model.RatingID;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
+@Getter
 public class RatingDTO {
 
     private final TitleDTO title;
