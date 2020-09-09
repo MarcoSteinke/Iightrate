@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title th:text="${title}"></title>
+        </head>
+        <style>
+            input {
+                margin: 8px;
+                padding: 6px;
+            }
+
+            input:focus {
+                filter: drop-shadow(2px 2px 2px rgb(60,60,60));
+                transition-duration: 0.3s;
+            }
+        </style>
+        <body style="text-align: center; margin: 0px; padding: 0px;">
+            <div style="filter: drop-shadow(1px 1px 1px rgb(60,60,60));">
+                <h2><span style="color: lightgreen;">lightrate</span> : the next level rating tool</h2>
+                <hr>
+            </div>
+            <div style="width: 600px; height: 400px;">
+                <h3 th:text="${title}"></h3>
+                <hr>
+                <div th:text="${description}"></div>
+            </div>
+
+        </body>
+</html>
