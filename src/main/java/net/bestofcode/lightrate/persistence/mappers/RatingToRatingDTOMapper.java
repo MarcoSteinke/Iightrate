@@ -7,8 +7,10 @@ import net.bestofcode.lightrate.domain.model.Title;
 import net.bestofcode.lightrate.persistence.DTO.DescriptionDTO;
 import net.bestofcode.lightrate.persistence.DTO.RatingDTO;
 import net.bestofcode.lightrate.persistence.DTO.TitleDTO;
+import org.springframework.stereotype.Component;
 
 @NoArgsConstructor
+@Component
 public class RatingToRatingDTOMapper {
 
     public Rating mapToRating(RatingDTO ratingDTO) {
