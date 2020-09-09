@@ -11,26 +11,23 @@ import org.springframework.stereotype.Service;
 public class DatabaseService {
 
     private final FakeDatabase fakeDatabase;
-    private final RatingMapper ratingMapper;
 
-    public DatabaseService(FakeDatabase fakeDatabase, RatingMapper ratingMapper) {
+    public DatabaseService(FakeDatabase fakeDatabase) {
 
         this.fakeDatabase = fakeDatabase;
-        this.ratingMapper = new RatingMapper();
 
     }
 
     public void save(Rating rating) {
 
-        RatingDTO ratingDTO = this.ratingMapper.mapToRatingDTO(rating);
-        this.fakeDatabase.insert(ratingDTO);
+        this.fakeDatabase.insert(rating);
     }
 
     public Rating load(RatingID ratingID) {
 
-        RatingDTO ratingDTO = this.fakeDatabase.load(ratingID);
+        Rating rating = this.fakeDatabase.load(ratingID);
 
-        return this.ratingMapper.mapToRating(ratingDTO);
+        return rating;
 
     }
 }
