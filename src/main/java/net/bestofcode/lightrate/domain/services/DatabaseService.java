@@ -4,25 +4,25 @@ import net.bestofcode.lightrate.domain.model.Rating;
 import net.bestofcode.lightrate.domain.model.RatingID;
 import net.bestofcode.lightrate.persistence.DTO.RatingDTO;
 import net.bestofcode.lightrate.persistence.FakeDatabase;
-import net.bestofcode.lightrate.persistence.mappers.RatingToRatingDTOMapper;
+import net.bestofcode.lightrate.persistence.mappers.RatingMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DatabaseService {
 
     private final FakeDatabase fakeDatabase;
-    private final RatingToRatingDTOMapper ratingToRatingDTOMapper;
+    private final RatingMapper ratingMapper;
 
-    public DatabaseService(FakeDatabase fakeDatabase, RatingToRatingDTOMapper ratingToRatingDTOMapper) {
+    public DatabaseService(FakeDatabase fakeDatabase, RatingMapper ratingMapper) {
 
         this.fakeDatabase = fakeDatabase;
-        this.ratingToRatingDTOMapper = new RatingToRatingDTOMapper();
+        this.ratingMapper = new RatingMapper();
 
     }
 
     public void save(Rating rating) {
 
-        RatingDTO ratingDTO = this.ratingToRatingDTOMapper.mapToRatingDTO(rating);
+        RatingDTO ratingDTO = this.ratingMapper.mapToRatingDTO(rating);
         this.fakeDatabase.insert(ratingDTO);
     }
 
@@ -30,7 +30,7 @@ public class DatabaseService {
 
         RatingDTO ratingDTO = this.fakeDatabase.load(ratingID);
 
-        return this.ratingToRatingDTOMapper.mapToRating(ratingDTO);
+        return this.ratingMapper.mapToRating(ratingDTO);
 
     }
 }

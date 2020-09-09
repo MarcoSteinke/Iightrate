@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @NoArgsConstructor
 @Component
-public class RatingToRatingDTOMapper {
+public class RatingMapper {
 
     public Rating mapToRating(RatingDTO ratingDTO) {
         Rating rating = new Rating(
