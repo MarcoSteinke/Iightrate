@@ -1,4 +1,4 @@
-package net.bestofcode.lightrate.domain;
+package net.bestofcode.lightrate.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

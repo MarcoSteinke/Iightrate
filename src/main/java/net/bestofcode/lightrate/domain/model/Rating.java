@@ -1,4 +1,4 @@
-package net.bestofcode.lightrate.domain;
+package net.bestofcode.lightrate.domain.model;
 
 import java.util.UUID;
 
