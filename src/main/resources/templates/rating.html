@@ -14,8 +14,12 @@
             }
 
             input:focus {
-                filter: drop-shadow(2px 2px 2px rgb(60,60,60));
+                filter: drop-shadow(2px 2px 2px rgb(60, 60, 60));
                 transition-duration: 0.3s;
+            }
+
+            #rating {
+
             }
         </style>
         <body style="text-align: center; margin: 0px; padding: 0px;">
@@ -23,7 +27,7 @@
             <h2><span style="color: lightgreen;">lightrate</span> : the next level rating tool</h2>
             <hr>
         </div>
-        <div style="width: 600px; height: 400px; margin: auto; border: 1px solid lightgray; border-radius: 5px; margin-top: 60px; -webkit-box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);
+        <div id="rating" style="width: 600px; height: 400px; margin: auto; border: 1px solid lightgray; border-radius: 5px; margin-top: 60px; -webkit-box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);
 box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);">
             <h1 th:text="${rating.getTitle().getContent()}"></h1>

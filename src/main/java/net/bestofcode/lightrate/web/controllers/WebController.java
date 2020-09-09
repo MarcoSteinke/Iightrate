@@ -61,7 +61,7 @@ public class WebController {
         } catch (IllegalArgumentException illegalArgumentException) {
 
             model.addAttribute("error", "The link you requested does not exist!");
-            return "redirect:/";
+            return "index";
 
         }
 
@@ -75,7 +75,7 @@ public class WebController {
         } else {
 
             model.addAttribute("error", "The link you requested does not exist!");
-            return "redirect:/";
+            return "index";
 
         }
     }
