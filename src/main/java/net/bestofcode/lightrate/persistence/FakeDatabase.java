@@ -4,7 +4,6 @@ import net.bestofcode.lightrate.domain.model.Rating;
 import net.bestofcode.lightrate.domain.model.RatingID;
 import net.bestofcode.lightrate.persistence.DTO.RatingDTO;
 import net.bestofcode.lightrate.persistence.mappers.RatingMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -28,9 +27,7 @@ public class FakeDatabase {
         this.database.put(ratingDTO.getRatingID(), ratingDTO);
 
         System.out.println(
-                ratingDTO.getTitle().getTitleContent() + "\n" +
-                ratingDTO.getDescription().getDescriptionContent() + "\n" +
-                ratingDTO.getDateOfCreation().toString()
+                ratingDTO.getRatingID().getId().toString()
         );
 
     }
@@ -38,6 +35,10 @@ public class FakeDatabase {
     public Rating load(RatingID ratingID) {
 
         RatingDTO ratingDTO = this.database.get(ratingID);
+
+        System.out.println(
+                ratingDTO.getRatingID().getId().toString()
+        );
 
         return this.ratingMapper.mapToRating(ratingDTO);
 

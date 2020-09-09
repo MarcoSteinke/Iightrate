@@ -1,7 +1,6 @@
 package net.bestofcode.lightrate.domain.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -25,5 +24,7 @@ public class Rating {
         this.count = 0;
         this.rating = -1.0;
         this.dateOfCreation = LocalDateTime.now();
+
+        System.out.println("vor mapping: " + this.ratingID.getId().toString());
     }
 }
