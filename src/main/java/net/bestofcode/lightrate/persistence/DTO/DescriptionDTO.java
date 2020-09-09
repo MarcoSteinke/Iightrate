@@ -1,4 +1,4 @@
-package net.bestofcode.lightrate.persistence;
+package net.bestofcode.lightrate.persistence.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldNameConstants;

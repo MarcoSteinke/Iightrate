@@ -1,9 +1,7 @@
 package net.bestofcode.lightrate.persistence;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import net.bestofcode.lightrate.domain.model.RatingID;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.bestofcode.lightrate.persistence.DTO.RatingDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
