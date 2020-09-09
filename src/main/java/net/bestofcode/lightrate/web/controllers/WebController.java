@@ -35,7 +35,7 @@ public class WebController {
     public String createNewRating(Model model, @RequestParam String title, @RequestParam String description) {
 
         if (title.equals("") || description.equals("")) {
-            model.addAttribute("error", "1");
+            model.addAttribute("error", "You have to fill all input fields!");
             return "index";
         }
 
@@ -46,7 +46,7 @@ public class WebController {
         );
 
         model.addAttribute("rating", rating);
-        return "rating";
+        return "redirect:/" + rating.getRatingID().getId().toString();
     }
 
     @GetMapping("/{id}")
@@ -60,7 +60,7 @@ public class WebController {
 
         } catch (IllegalArgumentException illegalArgumentException) {
 
-            model.addAttribute("error2", "1");
+            model.addAttribute("error", "The link you requested does not exist!");
             return "redirect:/";
 
         }
@@ -74,6 +74,7 @@ public class WebController {
 
         } else {
 
+            model.addAttribute("error", "The link you requested does not exist!");
             return "redirect:/";
 
         }
