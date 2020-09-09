@@ -19,15 +19,18 @@
             }
         </style>
         <body style="text-align: center; margin: 0px; padding: 0px;">
-            <div style="filter: drop-shadow(1px 1px 1px rgb(60,60,60));">
-                <h2><span style="color: lightgreen;">lightrate</span> : the next level rating tool</h2>
-                <hr>
-            </div>
-            <div style="width: 600px; height: 400px; margin: auto; border: 1px solid lightgray; border-radius: 5px;">
-                <h1 th:text="${rating.getTitle().getContent()}"></h1>
-                <hr>
-                <h2 th:text="${rating.getDescription().getContent()}"></h2>
-            </div>
+        <div style="filter: drop-shadow(1px 1px 1px rgb(60,60,60));">
+            <h2><span style="color: lightgreen;">lightrate</span> : the next level rating tool</h2>
+            <hr>
+        </div>
+        <div style="width: 600px; height: 400px; margin: auto; border: 1px solid lightgray; border-radius: 5px; margin-top: 60px; -webkit-box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);">
+            <h1 th:text="${rating.getTitle().getContent()}"></h1>
+            <div th:text="'created on ' + ${rating.getDateOfCreation().toLocalDate()}"></div>
+            <hr>
+            <h2 th:text="${rating.getDescription().getContent()}"></h2>
+        </div>
 
         </body>
 </html>
