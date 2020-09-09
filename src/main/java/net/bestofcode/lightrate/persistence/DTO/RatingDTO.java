@@ -2,12 +2,14 @@ package net.bestofcode.lightrate.persistence.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 import net.bestofcode.lightrate.domain.model.RatingID;
 
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Getter
+@ToString
 public class RatingDTO {
 
     private final TitleDTO title;

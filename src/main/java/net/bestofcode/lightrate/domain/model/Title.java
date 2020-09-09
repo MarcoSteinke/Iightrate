@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Title implements Credential {
 
-    private final String titleContent;
+    private final String content;
     private static final int MAX_LENGTH = 60;
 
     @Override
@@ -17,6 +17,6 @@ public class Title implements Credential {
 
     @Override
     public int length() {
-        return this.titleContent.length();
+        return this.content.length();
     }
 }

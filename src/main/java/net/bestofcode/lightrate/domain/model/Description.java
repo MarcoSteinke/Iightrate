@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class Description implements Credential{
 
-    private final String descriptionContent;
+    private final String content;
     private static final int MAX_LENGTH = 200;
 
     @Override

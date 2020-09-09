@@ -29,8 +29,8 @@ public class RatingMapper {
     public RatingDTO mapToRatingDTO(Rating rating) {
 
         RatingDTO ratingDTO = new RatingDTO(
-                new TitleDTO(rating.getTitle().getTitleContent()),
-                new DescriptionDTO(rating.getDescription().getDescriptionContent()),
+                new TitleDTO(rating.getTitle().getContent()),
+                new DescriptionDTO(rating.getDescription().getContent()),
                 rating.getRatingID(),
                 rating.getCount(),
                 rating.getRating(),

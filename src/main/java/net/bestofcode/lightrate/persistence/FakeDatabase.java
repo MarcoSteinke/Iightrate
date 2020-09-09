@@ -27,6 +27,12 @@ public class FakeDatabase {
         RatingDTO ratingDTO = this.ratingMapper.mapToRatingDTO(rating);
         this.database.put(ratingDTO.getRatingID(), ratingDTO);
 
+        System.out.println(
+                ratingDTO.getTitle().getTitleContent() + "\n" +
+                ratingDTO.getDescription().getDescriptionContent() + "\n" +
+                ratingDTO.getDateOfCreation().toString()
+        );
+
     }
 
     public Rating load(RatingID ratingID) {
