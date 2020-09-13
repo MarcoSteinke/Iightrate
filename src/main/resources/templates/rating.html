@@ -36,16 +36,44 @@ box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);">
             <hr>
             <h4 th:text="${rating.getDescription().getContent()}"></h4>
             <form action="#" method="post" th:action="'/' + ${rating.getRatingID().getId().toString()}">
-                <input id="star1" name="star" type="radio" value="1">
-                <input id="star2" name="star" type="radio" value="2">
-                <input id="star3" name="star" type="radio" value="3">
-                <input id="star4" name="star" type="radio" value="4">
-                <input id="star5" name="star" type="radio" value="5">
-
-                <input type="submit" value="submit">
+                <label for="star1">
+                    <img class="img1 star" onclick="rate(1)" src="styles/empty.jpg">
+                </label>
+                <input class="input-hidden" id="star1" name="star" type="radio" value="1">
+                <label for="star2">
+                    <img class="img2 star" onclick="rate(2)" src="styles/empty.jpg">
+                </label>
+                <input class="input-hidden" id="star2" name="star" type="radio" value="2">
+                <label for="star3">
+                    <img class="img3 star" onclick="rate(3)" src="styles/empty.jpg">
+                </label>
+                <input class="input-hidden" id="star3" name="star" type="radio" value="3">
+                <label for="star4">
+                    <img class="img4 star" onclick="rate(4)" src="styles/empty.jpg">
+                </label>
+                <input class="input-hidden" id="star4" name="star" type="radio" value="4">
+                <label for="star5" onclick="">
+                    <img class="img5 star" onclick="rate(5)" src="styles/empty.jpg">
+                </label>
+                <input class="input-hidden" id="star5" name="star" type="radio" value="5">
             </form>
+            <h4 style="color: #ee6f57">Click on one of the stars to leave your rating</h4>
             <h4 th:text="${rating.getCount()} + ' user(s) have rated.'"></h4>
         </div>
 
         </body>
-</html>
+        <script th:inline="javascript">
+            /*[+
+
+            const stars = document.querySelectorAll(".star");
+            const rating = [[${rating.getRatingAsInt()}]];
+            const ratingId = [[${rating.getRatingID().getId().toString()}]];
+
+            +]*/
+        </script>
+        <script>
+            function rate(value) {
+                document.location.href = ratingId + "/" + value;
+            }
+        </script>
+        </html>

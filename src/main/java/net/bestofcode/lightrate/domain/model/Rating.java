@@ -27,4 +27,8 @@ public class Rating {
 
         System.out.println("vor mapping: " + this.ratingID.getId().toString());
     }
+
+    public int getRatingAsInt() {
+        return (int) Math.floor(this.rating);
+    }
 }
