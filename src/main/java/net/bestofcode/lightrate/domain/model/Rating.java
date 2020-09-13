@@ -15,6 +15,7 @@ public class Rating {
     private final RatingID ratingID;
     private Integer count;
     private Double rating;
+    private Integer sum;
     private final LocalDateTime dateOfCreation;
 
     public Rating(Title title, Description description) {
@@ -23,6 +24,7 @@ public class Rating {
         this.ratingID = new RatingID(UUID.randomUUID());
         this.count = 0;
         this.rating = -1.0;
+        this.sum = 0;
         this.dateOfCreation = LocalDateTime.now();
 
         System.out.println("vor mapping: " + this.ratingID.getId().toString());

@@ -19,6 +19,7 @@ public class RatingDTO {
     private final RatingID ratingID;
     private Integer count;
     private Double rating;
+    private Integer sum;
 
     private final LocalDateTime dateOfCreation;
 }

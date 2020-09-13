@@ -3,8 +3,6 @@ package net.bestofcode.lightrate.domain.services;
 import net.bestofcode.lightrate.domain.model.Description;
 import net.bestofcode.lightrate.domain.model.Rating;
 import net.bestofcode.lightrate.domain.model.Title;
-import net.bestofcode.lightrate.persistence.FakeDatabase;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,5 +22,20 @@ public class RatingService {
         this.databaseService.save(rating);
 
         return rating;
+    }
+
+    public void updateRating(Rating rating, int latestRating) {
+
+        Rating rating1 = new Rating(
+                rating.getTitle(),
+                rating.getDescription(),
+                rating.getRatingID(),
+                rating.getCount() + 1,
+                ((double) rating.getSum() + 1) / ((double) rating.getCount() + 1),
+                rating.getSum() + 1,
+                rating.getDateOfCreation()
+        );
+
+        databaseService.save(rating1);
     }
 }
