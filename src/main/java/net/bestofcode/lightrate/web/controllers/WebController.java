@@ -112,7 +112,7 @@ public class WebController {
         }
     }
 
-    @GetMapping("/{id}/{latestRating}")
+    @GetMapping("/{id}/rate/{latestRating}")
     public String updateRating(Model model, @PathVariable String id, @PathVariable int latestRating) {
 
         RatingID ratingID;
