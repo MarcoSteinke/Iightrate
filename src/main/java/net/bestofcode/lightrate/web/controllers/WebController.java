@@ -111,4 +111,36 @@ public class WebController {
 
         }
     }
+
+    @GetMapping("/{id}/{latestRating}")
+    public String updateRating(Model model, @PathVariable String id, @PathVariable int latestRating) {
+
+        RatingID ratingID;
+
+        try {
+
+            ratingID = new RatingID(UUID.fromString(id));
+
+        } catch (IllegalArgumentException illegalArgumentException) {
+
+            model.addAttribute("error", "The link you requested does not exist!");
+            return "index";
+
+        }
+
+        Rating rating = this.databaseService.load(ratingID);
+
+        if (rating != null) {
+
+            this.ratingService.updateRating(rating, latestRating);
+
+            return "redirect:/" + id;
+
+        } else {
+
+            model.addAttribute("error", "The link you requested does not exist!");
+            return "index";
+
+        }
+    }
 }

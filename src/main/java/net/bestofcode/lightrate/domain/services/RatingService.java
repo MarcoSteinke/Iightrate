@@ -26,15 +26,19 @@ public class RatingService {
 
     public void updateRating(Rating rating, int latestRating) {
 
+        System.out.println(rating.toString());
+
         Rating rating1 = new Rating(
                 rating.getTitle(),
                 rating.getDescription(),
                 rating.getRatingID(),
                 rating.getCount() + 1,
-                ((double) rating.getSum() + 1) / ((double) rating.getCount() + 1),
-                rating.getSum() + 1,
+                ((double) rating.getSum() + latestRating) / ((double) rating.getCount() + 1),
+                rating.getSum() + latestRating,
                 rating.getDateOfCreation()
         );
+
+        System.out.println(rating1.toString());
 
         databaseService.save(rating1);
     }
