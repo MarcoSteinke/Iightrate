@@ -35,13 +35,23 @@ box-shadow: 1px 0px 20px -5px rgba(0,0,0,0.75);">
             <div th:text="'created on ' + ${rating.getDateOfCreation().toLocalDate()}"></div>
             <hr>
             <h4 th:text="${rating.getDescription().getContent()}"></h4>
-            <form action="#" method="post" th:action="'/' + ${rating.getRatingID().getId().toString()}">
+            <form action="#" method="post" th:action="'/' + ${rating.getRatingID().getId().toString()}"
+                  th:unless="${canNotRate}">
                 <img class="img1 star" onclick="rate(1)" src="styles/empty.jpg">
                 <img class="img2 star" onclick="rate(2)" src="styles/empty.jpg">
                 <img class="img3 star" onclick="rate(3)" src="styles/empty.jpg">
                 <img class="img4 star" onclick="rate(4)" src="styles/empty.jpg">
                 <img class="img5 star" onclick="rate(5)" src="styles/empty.jpg">
                 <h4 style="color: #ee6f57">Click on one of the stars to leave your rating</h4>
+                <h4 th:text="${rating.getCount()} + ' user(s) have rated.'"></h4>
+            </form>
+            <form action="#" method="post" th:if="${canNotRate}">
+                <img class="img1 star" src="styles/empty.jpg">
+                <img class="img2 star" src="styles/empty.jpg">
+                <img class="img3 star" src="styles/empty.jpg">
+                <img class="img4 star" src="styles/empty.jpg">
+                <img class="img5 star" src="styles/empty.jpg">
+                <h4 style="color: #ee6f57">You already rated this.</h4>
                 <h4 th:text="${rating.getCount()} + ' user(s) have rated.'"></h4>
             </form>
         </div>
