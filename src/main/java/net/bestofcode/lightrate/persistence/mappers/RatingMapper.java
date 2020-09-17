@@ -28,6 +28,7 @@ public class RatingMapper {
                 ratingDTO.getCount(),
                 ratingDTO.getRating(),
                 ratingDTO.getSum(),
+                ratingDTO.getListOfUsers(),
                 ratingDTO.getDateOfCreation()
         );
 
@@ -43,6 +44,7 @@ public class RatingMapper {
                 rating.getCount(),
                 rating.getRating(),
                 rating.getSum(),
+                rating.getListOfUsers(),
                 rating.getDateOfCreation()
         );
 

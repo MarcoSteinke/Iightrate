@@ -3,8 +3,11 @@ package net.bestofcode.lightrate.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import net.bestofcode.lightrate.web.security.IP;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -18,6 +21,7 @@ public class Rating {
     private Integer count;
     private Double rating;
     private Integer sum;
+    private final List<IP> listOfUsers;
     private final LocalDateTime dateOfCreation;
 
     public Rating(Title title, Description description) {
@@ -27,6 +31,7 @@ public class Rating {
         this.count = 0;
         this.rating = -1.0;
         this.sum = 0;
+        this.listOfUsers = new ArrayList<IP>();
         this.dateOfCreation = LocalDateTime.now();
 
         System.out.println("vor mapping: " + this.ratingID.getId().toString());

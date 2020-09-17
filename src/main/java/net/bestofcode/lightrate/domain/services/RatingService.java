@@ -3,7 +3,10 @@ package net.bestofcode.lightrate.domain.services;
 import net.bestofcode.lightrate.domain.model.Description;
 import net.bestofcode.lightrate.domain.model.Rating;
 import net.bestofcode.lightrate.domain.model.Title;
+import net.bestofcode.lightrate.web.security.IP;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 public class RatingService {
@@ -35,11 +38,32 @@ public class RatingService {
                 rating.getCount() + 1,
                 ((double) rating.getSum() + latestRating) / ((double) rating.getCount() + 1),
                 rating.getSum() + latestRating,
+                rating.getListOfUsers(),
                 rating.getDateOfCreation()
         );
 
         System.out.println(rating1.toString());
 
         databaseService.save(rating1);
+    }
+
+    public void bindUserIp(Rating rating, IP ip) {
+        rating.getListOfUsers().add(ip);
+    }
+
+    public boolean isAllowed(Rating rating, IP ip) {
+
+        AtomicBoolean result = new AtomicBoolean(true);
+
+        rating.getListOfUsers().forEach(userIp -> {
+
+            if (userIp.toString().equals(ip.toString())) {
+                result.set(false);
+            }
+
+        });
+
+        return result.get();
+
     }
 }
