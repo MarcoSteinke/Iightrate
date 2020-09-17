@@ -6,6 +6,7 @@ import net.bestofcode.lightrate.domain.model.RatingID;
 import net.bestofcode.lightrate.domain.model.Title;
 import net.bestofcode.lightrate.domain.services.DatabaseService;
 import net.bestofcode.lightrate.domain.services.RatingService;
+import net.bestofcode.lightrate.web.security.IP;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,7 +52,7 @@ public class WebController {
     }
 
     @GetMapping("/{id}")
-    public String returnRating(Model model, @PathVariable String id) {
+    public String returnRating(Model model, @PathVariable String id, HttpServletRequest request) {
 
         RatingID ratingID;
 
@@ -70,6 +71,12 @@ public class WebController {
 
         if (rating != null) {
 
+            IP ip = new IP(request.getRemoteAddr());
+
+            if (!this.ratingService.isAllowed(rating, ip)) {
+                model.addAttribute("canNotRate", "true");
+            }
+
             model.addAttribute("rating", rating);
             return "rating";
 
@@ -82,7 +89,7 @@ public class WebController {
     }
 
     @PostMapping("/{id}")
-    public String returnRating(Model model, @PathVariable String id, @RequestParam int star, HttpServletRequest request) {
+    public String returnRating(Model model, @PathVariable String id, @RequestParam int star) {
 
         RatingID ratingID;
 
@@ -113,7 +120,7 @@ public class WebController {
     }
 
     @GetMapping("/{id}/rate/{latestRating}")
-    public String updateRating(Model model, @PathVariable String id, @PathVariable int latestRating) {
+    public String updateRating(Model model, @PathVariable String id, @PathVariable int latestRating, HttpServletRequest request) {
 
         RatingID ratingID;
 
@@ -132,7 +139,10 @@ public class WebController {
 
         if (rating != null) {
 
+            IP ip = new IP(request.getRemoteAddr());
+
             this.ratingService.updateRating(rating, latestRating);
+            this.ratingService.bindUserIp(rating, ip);
 
             return "redirect:/" + id;
 
