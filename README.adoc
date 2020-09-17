@@ -1,6 +1,6 @@
 # Iightrate
 Simple Web Application with huge impact
 
-image:files/screenshot.png[]
+image::https://raw.githubusercontent.com/MarcoSteinke/Iightrate/master/files/screenshot.PNG[]
 
 
