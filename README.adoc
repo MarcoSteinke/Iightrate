@@ -1,5 +1,6 @@
 # Iightrate
-Simple Web Application with huge impact
+
+Offer small widgets for customer ratings.
 
 image::https://raw.githubusercontent.com/MarcoSteinke/Iightrate/master/files/screenshot.PNG[]
 
